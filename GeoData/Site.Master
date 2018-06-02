@@ -1,0 +1,183 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="GeoData.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %></title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+    
+    <!--   Material Kit Html   -->
+    
+    <!--   Core JS Files   -->
+    <script src="Scripts/popper.min.js"></script>
+    <script src="Scripts/jquery.min.js"></script>
+    <script src="Scripts/bootstrap-material-design.min.js"></script>
+    
+    <script src="Scripts/material-kit.js"></script>
+    <script src="Scripts/material-kit.min.js"></script>
+    <script src="Scripts/moment.min.js"></script>
+    <script src="Scripts//bootstrap-datetimepicker.js"></script>
+    <script src="Scripts/nouislider.min.js"></script>
+    <link href="Content/material-kit.css?v=2.0.3" rel="stylesheet" />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    
+</head>
+<body <%
+         if (Request.Url.PathAndQuery == "/Home" || Request.Url.PathAndQuery == "/Charts")
+         {
+             Response.Write("class=\"profile-page sidebar-collapse\"");
+         }
+         if (Request.Url.PathAndQuery == "/Account/Register")
+         {
+             Response.Write("class=\"signup-page sidebar-collapse\"");
+         }%> >
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <nav class="<%if (Request.Url.PathAndQuery == "/Home" || Request.Url.PathAndQuery == "/Charts")
+               {
+                   Response.Write("navbar navbar-color-on-scroll fixed-top navbar-expand-lg navbar-transparent");
+               }
+                      else
+                      {
+                          Response.Write("navbar navbar-expand-lg bg-primary");
+                      } %>">
+            <div class="container">
+                <div class="navbar-translate">
+                    <a class="navbar-brand" runat="server" href="~/" style="top: -5px;">
+                        <img style="height: 45px; width: 45px; color: white" src="/Image/logo.png" />  GeoData<div class="ripple-container"></div></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse">
+                    
+                    <ul class="navbar-nav">
+                        <li class="nav-item <% if (Request.Url.PathAndQuery == "/Home")
+                                               {
+                                                   Response.Write("active");} %>">
+                            <a href="/Home" class="nav-link"><i class="material-icons">home</i>Home</a>
+                        </li>
+                        <li class="nav-item <% if (Request.Url.PathAndQuery == "/Charts" )
+                                               {
+                                                   Response.Write("active");} %>">
+                            <a href="/Charts" class="nav-link"><i class="material-icons">insert_chart_outlined</i>Charts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://www.wikipedia.org/" target="_blank" class="nav-link">Wikipedia</a>
+                        </li>
+                    </ul>
+
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav ml-auto">
+                                <li class="nav-item <% if (Request.Url.PathAndQuery == "/Account/Register") {Response.Write("active");}%>">
+                                    <a runat="server" href="~/Account/Register"  class="nav-link">
+                                        Register
+                                    </a>
+                                </li>
+                                <li class="nav-item <% if (Request.Url.PathAndQuery == "/Account/Login" || Request.Url.PathAndQuery == "/Account/Login?ReturnUrl=%2FHome") {Response.Write("active");}%>">
+                                    <a runat="server" href="~/Account/Login"  class="nav-link">
+                                        Log in
+                                    </a>
+                                </li>
+                            </ul>
+                        </AnonymousTemplate>
+
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav ml-auto">
+                                <li class="nav-item <% if (Request.Url.PathAndQuery == "/Account/Manage") {Response.Write("active");}%>">
+                                    <a runat="server" href="~/Account/Manage" class="nav-link" id="account" title="Manage your account">
+                                        <i class="material-icons">account_circle</i>
+                                        Hello, <%: Context.User.Identity.GetUserName()  %> !
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" CssClass="nav-link" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                    
+
+                    
+                    
+
+                </div>
+            </div>
+        </nav>
+        
+        
+        
+            
+            <% bool popa = false;
+               if (Request.Url.PathAndQuery != "/Account/Register" && Request.Url.PathAndQuery != "/Home"  && Request.Url.PathAndQuery != "/Charts")
+               {
+                   Response.Write("<div class=\"container body-content\">");
+                   popa = true;
+               }
+            %>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <%
+                if (popa)
+                {
+                    Response.Write("</div>");
+                }
+            %>
+        
+
+            <% if (Request.Url.PathAndQuery != "/Account/Register"){  %>
+            <footer class="footer <%if (Request.Url.PathAndQuery == "/Home" || Request.Url.PathAndQuery == "/Charts")
+                                    {
+                                        Response.Write("footer-default");
+                                    } %>">
+                <div class="container">
+                    <div class="copyright float-right">
+                        &copy;
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script>, made with <i class="material-icons">favorite</i> and 💉 by
+                        <a href="https://www.psmakos.tk" target="_blank">icsd15111 & icsd15101</a> for Web Programing Class.
+                    </div>
+                </div>
+            </footer>
+            <%} %>
+        
+        
+    </form>
+</body>
+</html>
