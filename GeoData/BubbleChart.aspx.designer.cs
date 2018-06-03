@@ -10,33 +10,33 @@
 namespace GeoData {
     
     
-    public partial class Charts {
+    public partial class BubbleChart {
         
         /// <summary>
-        /// CriterionSelect control.
+        /// Option1Select control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect CriterionSelect;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect Option1Select;
         
         /// <summary>
-        /// ChartSelect control.
+        /// Option2Select control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect ChartSelect;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect Option2Select;
         
         /// <summary>
-        /// SelectChart control.
+        /// SelectOption control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SelectChart;
+        protected global::System.Web.UI.WebControls.Button SelectOption;
     }
 }

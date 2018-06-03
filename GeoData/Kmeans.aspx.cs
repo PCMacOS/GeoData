@@ -55,7 +55,7 @@ namespace GeoData
             if (Kstep == 0)
             {
                 Random randomCoutry = new Random();
-                Group1Center = randomCoutry.Next(0, CountryList.Count-1) + 1;
+                Group1Center = randomCoutry.Next(0, CountryList.Count - 1) + 1;
                 Group2Center = randomCoutry.Next(0, CountryList.Count - 1) + 1;
 
                 Group1CenterLat = Convert.ToDouble(CountryList[Group1Center].CoordinatesLant.Replace('.', ','));
@@ -70,7 +70,7 @@ namespace GeoData
                 double sumG2Lat = 0;
                 double sumG2Lot = 0;
 
-                
+
                 for (int i = 0; i < CountryList.Count; i++)
                 {
                     double distanceG1 = 0;
@@ -78,7 +78,7 @@ namespace GeoData
 
                     distanceG1 = Math.Sqrt(
                         Math.Pow(
-                            (Convert.ToDouble(CountryList[i].CoordinatesLant.Replace('.',',')) -
+                            (Convert.ToDouble(CountryList[i].CoordinatesLant.Replace('.', ',')) -
                              Convert.ToDouble(CountryList[Group1Center].CoordinatesLant.Replace('.', ','))), 2) +
                         Math.Pow(
                             (Convert.ToDouble(CountryList[i].CoordinatesLont.Replace('.', ',')) -

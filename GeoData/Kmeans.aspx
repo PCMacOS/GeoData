@@ -50,21 +50,17 @@
                             <script>
                                 google.charts.load('current', { 'packages': ['map'], "mapsApiKey": "AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY" });
                                 google.charts.setOnLoadCallback(drawMap);
-
                                 function drawMap() {
                                     var data = google.visualization.arrayToDataTable([
                                         ['Lat', 'Long', 'Name'],
                                         [<%= Group1CenterLat.ToString(CultureInfo.InvariantCulture) %>, <%= Group1CenterLot.ToString(CultureInfo.InvariantCulture) %>, '<%= CountryList[Group1Center].Title %>'],
                                         [<%= Group2CenterLat.ToString(CultureInfo.InvariantCulture) %>, <%= Group2CenterLot.ToString(CultureInfo.InvariantCulture) %>, '<%= CountryList[Group2Center].Title %>'],
                                     ]);
-
                                     var options = {
                                         showTooltip: true,
                                         showInfoWindow: true
                                     };
-
                                     var map = new google.visualization.Map(document.getElementById('chart_div'));
-
                                     map.draw(data, options);
                                 };
                             </script>
@@ -79,7 +75,6 @@
                                     'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
                                 });
                                 google.charts.setOnLoadCallback(drawRegionsMap);
-
                                 function drawRegionsMap() {
                                     var data = google.visualization.arrayToDataTable([
                                         ['Country', 'Group'],
@@ -87,8 +82,6 @@
                                            {
                                                try
                                                {
-
-
                                         %>
                                         ['<%= CountryList[i].Title %>', <%= CountryListGroup[i] %>],
                                         <% }
@@ -97,13 +90,11 @@
                                                }
                                            } %>
                                     ]);
-
                                     var options = {
                                         colorAxis: { colors: ['red', 'black', 'green'] },
-                                        backgroundColor: '#81d4fa'};
-
+                                        backgroundColor: '#81d4fa'
+                                    };
                                     var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-
                                     chart.draw(data, options);
                                 }
                             </script>

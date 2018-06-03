@@ -40,7 +40,7 @@
                     <div class="col-md-8 ml-auto mr-auto">
                         <% if (countryCount >= 10)
                            {%>
-                            
+                            <form id="OptionForm" >
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="title">
                                 <h3>Countres</h3>
@@ -48,7 +48,7 @@
                             <% for (int i = 0; i < CountryList.Count; i++)
                                { %>
                             <div class="form-check">
-                                <label class="form-check-label">
+                                <label class="form-check-label" >
                                     <input class="form-check-input" type="checkbox" id="<%= CountryList[i].Title %>" value="<%= CountryList[i].Title %>">
                                     <%= CountryList[i].Title %>
                                 <span class="form-check-sign">
@@ -63,7 +63,14 @@
                             <div class="title">
                                 <h3>Criterion</h3>
                             </div>
-                            <% string criterionTitle = "";
+                            <select id="CriterionSelect" runat="server">
+                                <option value="5">Area Km2</option>
+                                <option value="6">Population (estimate)</option>
+                                <option value="7">GDP</option>
+                                <option value="8">Gini</option>
+                                <option value="9">Hid</option>
+                            </select>
+                            <%--<% string criterionTitle = "";
                                 for (int i = 5; i < 10; i++)
                                 {
                                     if (i == 5) criterionTitle = "Area Km<sup>2</sup>";
@@ -80,63 +87,125 @@
                                     <span class="check"></span>
                                 </span>
                                 </label>
-                            </div> 
-                             <% } %>
+                            </div>
+                             <% } %>--%>
 
                         </div>
 
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="title">
-                                <h3>Toggle Buttons</h3>
+                                <h3>Charts</h3>
                             </div>
-
-                            <div class="togglebutton">
-                                <label>
-                                    <input type="checkbox" checked="">
-                                    <span class="toggle"></span>
-                                    Toggle is on
-                                </label>
-                            </div>
-                            <div class="togglebutton">
-                                <label>
-                                    <input type="checkbox">
-                                    <span class="toggle"></span>
-                                    Toggle is off
-                                </label>
-                            </div>
-                        </div><div style="text-align: center;" ><asp:Button ID="SelectChart" runat="server" Text="Select Chart" CssClass="btn btn-primary btn-raised" OnClick="SelectChart_OnClick" /></div>
-                            
+                                <select id="ChartSelect" runat="server">
+                                    <option value="1">Bar Chart</option>
+                                    <option value="2">Pie Chart</option>
+                                    <option value="3">Column Chart</option>
+                                </select>
+                        </div>
+                                <div style="text-align: center;" ><asp:Button ID="SelectChart" runat="server" Text="Select Chart" CssClass="btn btn-primary btn-raised" OnClick="SelectChart_OnClick" /></div>
+                            </form>
+                        
+                            <%if (optionSelected){ %>
+                                <%if (Chart == 1){ %>
                             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                             <script>
-                                google.charts.load('current', { 'packages': ['map'], "mapsApiKey": "AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY"});
-                                google.charts.setOnLoadCallback(drawMap);
+                                google.charts.load('current', { packages: ['corechart', 'bar'] });
+                                google.charts.setOnLoadCallback(drawMultSeries);
 
-                                function drawMap() {
+                                function drawMultSeries() {
                                     var data = google.visualization.arrayToDataTable([
-                                        ['Country', 'Population'],
-                                        ['Greece', 'China: 1,363,800,000'],
-                                        ['India', 'India: 1,242,620,000'],
-                                        ['US', 'US: 317,842,000'],
-                                        ['Indonesia', 'Indonesia: 247,424,598'],
-                                        ['Brazil', 'Brazil: 201,032,714'],
-                                        ['Pakistan', 'Pakistan: 186,134,000'],
-                                        ['Nigeria', 'Nigeria: 173,615,000'],
-                                        ['Bangladesh', 'Bangladesh: 152,518,015'],
-                                        ['Russia', 'Russia: 146,019,512'],
-                                        ['Japan', 'Japan: 127,120,000']
+                                        ['Country', '<%= CriterionTitle %>'],
+                                        <% for (int i = 0; i < CountryList.Count; i++)
+                                      { %>
+                                        ['<%= CountryList[i].Title %>', <%= CriterionList[i].Replace(",", ".") %>],
+                                        <% } %>
                                     ]);
 
                                     var options = {
-                                        showTooltip: true,
-                                        showInfoWindow: true
+                                        title: 'Total <%= ChartTitle %>',
+                                        chartArea: { width: '50%' },
+                                        hAxis: {
+                                            title: '<%= CriterionTitle %>',
+                                            minValue: 0
+                                        },
+                                        vAxis: {
+                                            title: 'Country'
+                                        }
                                     };
 
-                                    var map = new google.visualization.Map(document.getElementById('chart_div'));
-
-                                    map.draw(data, options);
-                                };
+                                    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+                                    chart.draw(data, options);
+                                }
                             </script>
-                            <div id="chart_div"></div>
+                            <div id="chart_div" style="width: 900px; height: 500px;"></div>
+                                <% } %>
+                                
+                                <%if (Chart == 2){ %>
+                                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                                    <script>
+                                        google.charts.load('current', { 'packages': ['corechart'] });
+                                        google.charts.setOnLoadCallback(drawChart);
+
+                                        function drawChart() {
+
+                                            var data = google.visualization.arrayToDataTable([
+                                                ['Country', '<%= CriterionTitle %>'],
+                                                <% for (int i = 0; i < CountryList.Count; i++)
+                                           { %>
+                                                ['<%= CountryList[i].Title %>', <%= CriterionList[i].Replace(",", ".") %>],
+                                                <% } %>
+                                            ]);
+
+                                            var options = {
+                                                title: '<%= ChartTitle %> (<%= CriterionTitle %>)'
+                                            };
+
+                                            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+                                            chart.draw(data, options);
+                                        }
+                                    </script>
+                                    <div id="piechart" style="width: 900px; height: 500px;"></div>
+                                <% } %>
+                                
+                                <%if (Chart == 3){ %>
+                                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                                    <script>
+                                        google.charts.load('current', { packages: ['corechart', 'bar'] });
+                                        google.charts.setOnLoadCallback(drawBasic);
+
+                                        function drawBasic() {
+
+                                            var data = new google.visualization.DataTable();
+                                            data.addColumn('string', 'Time of Day');
+                                            data.addColumn('number', '<%= CriterionTitle %>');
+
+                                            data.addRows([
+                                                <% for (int i = 0; i < CountryList.Count; i++)
+                                           { %>
+                                                ['<%= CountryList[i].Title %>', <%= CriterionList[i].Replace(",", ".") %>],
+                                                <% } %>
+                                            ]);
+
+                                            var options = {
+                                                title: '<%= ChartTitle %>',
+                                                hAxis: {
+                                                    title: 'Country'
+                                                },
+                                                vAxis: {
+                                                    title: '<%= CriterionTitle %>'
+                                                }
+                                            };
+
+                                            var chart = new google.visualization.ColumnChart(
+                                                document.getElementById('chart_div'));
+
+                                            chart.draw(data, options);
+                                        }
+                                    </script>
+                                    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+                                <% } %>
+                            <% } %>
 
                         <% }
                            else
