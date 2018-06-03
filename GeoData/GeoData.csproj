@@ -288,6 +288,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="BubbleChart.aspx" />
     <Content Include="Charts.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -500,6 +501,13 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="BubbleChart.aspx.cs">
+      <DependentUpon>BubbleChart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BubbleChart.aspx.designer.cs">
+      <DependentUpon>BubbleChart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Charts.aspx.cs">
       <DependentUpon>Charts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
