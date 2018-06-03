@@ -318,6 +318,7 @@
     <Content Include="Image\city-profile.jpg" />
     <Content Include="Image\login.jpg" />
     <Content Include="Image\logo.png" />
+    <Content Include="Kmeans.aspx" />
     <Content Include="ProjectEkfonisi.html" />
     <Content Include="Scripts\bootstrap-material-design.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -522,6 +523,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kmeans.aspx.cs">
+      <DependentUpon>Kmeans.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kmeans.aspx.designer.cs">
+      <DependentUpon>Kmeans.aspx</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201805212216291_InitialCreate.cs" />
     <Compile Include="Migrations\201805212216291_InitialCreate.Designer.cs">

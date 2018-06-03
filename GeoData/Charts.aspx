@@ -114,7 +114,7 @@
                                 function drawMap() {
                                     var data = google.visualization.arrayToDataTable([
                                         ['Country', 'Population'],
-                                        ['China', 'China: 1,363,800,000'],
+                                        ['Greece', 'China: 1,363,800,000'],
                                         ['India', 'India: 1,242,620,000'],
                                         ['US', 'US: 317,842,000'],
                                         ['Indonesia', 'Indonesia: 247,424,598'],

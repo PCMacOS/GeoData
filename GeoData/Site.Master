@@ -34,7 +34,7 @@
     
 </head>
 <body <%
-         if (Request.Url.PathAndQuery == "/Home" || Request.Url.PathAndQuery == "/Charts")
+         if (Request.Url.PathAndQuery == "/Home" || Request.Url.PathAndQuery == "/Charts" || Request.Url.PathAndQuery == "/Kmeans")
          {
              Response.Write("class=\"profile-page sidebar-collapse\"");
          }
@@ -64,7 +64,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav class="<%if (Request.Url.PathAndQuery == "/Home" || Request.Url.PathAndQuery == "/Charts")
+        <nav class="<%if (Request.Url.PathAndQuery == "/Home" || Request.Url.PathAndQuery == "/Charts" || Request.Url.PathAndQuery == "/Kmeans")
                {
                    Response.Write("navbar navbar-color-on-scroll fixed-top navbar-expand-lg navbar-transparent");
                }
@@ -95,6 +95,11 @@
                                                {
                                                    Response.Write("active");} %>">
                             <a href="/Charts" class="nav-link"><i class="material-icons">insert_chart_outlined</i>Charts</a>
+                        </li>
+                        <li class="nav-item <% if (Request.Url.PathAndQuery == "/Kmeans" )
+                                               {
+                                                   Response.Write("active");} %>">
+                            <a href="/Kmeans" class="nav-link"><i class="material-icons">bar_chart</i>K means</a>
                         </li>
                         <li class="nav-item">
                             <a href="https://www.wikipedia.org/" target="_blank" class="nav-link">Wikipedia</a>
@@ -144,7 +149,7 @@
         
             
             <% bool popa = false;
-               if (Request.Url.PathAndQuery != "/Account/Register" && Request.Url.PathAndQuery != "/Home"  && Request.Url.PathAndQuery != "/Charts")
+               if (Request.Url.PathAndQuery != "/Account/Register" && Request.Url.PathAndQuery != "/Home"  && Request.Url.PathAndQuery != "/Charts"  && Request.Url.PathAndQuery != "/Kmeans")
                {
                    Response.Write("<div class=\"container body-content\">");
                    popa = true;
@@ -161,7 +166,7 @@
         
 
             <% if (Request.Url.PathAndQuery != "/Account/Register"){  %>
-            <footer class="footer <%if (Request.Url.PathAndQuery == "/Home" || Request.Url.PathAndQuery == "/Charts")
+            <footer class="footer <%if (Request.Url.PathAndQuery == "/Home" || Request.Url.PathAndQuery == "/Charts" || Request.Url.PathAndQuery == "/Kmeans")
                                     {
                                         Response.Write("footer-default");
                                     } %>">
