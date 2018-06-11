@@ -1,0 +1,56 @@
+[33mcommit 5ccf79d69f476f549b812a0029d8fa73b0dcd2c7[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author:     Panagiotis-Stephanos Makos <psmakos@hotmail.com>
+AuthorDate: Tue Jun 12 02:47:09 2018 +0300
+Commit:     Panagiotis-Stephanos Makos <psmakos@hotmail.com>
+CommitDate: Tue Jun 12 02:47:09 2018 +0300
+
+    Chart fix
+
+[33mcommit f9be6f95e77aa2a7403dde697ce50b3a03533435[m
+Merge: f2d90ca 892611b
+Author:     Panagiotis-Stephanos Makos <psmakos@hotmail.com>
+AuthorDate: Tue Jun 12 02:06:34 2018 +0300
+Commit:     Panagiotis-Stephanos Makos <psmakos@hotmail.com>
+CommitDate: Tue Jun 12 02:06:34 2018 +0300
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit f2d90ca00e629027bb979ce65d6c609f94096af9[m
+Author:     Panagiotis-Stephanos Makos <psmakos@hotmail.com>
+AuthorDate: Sun Jun 3 21:30:06 2018 +0300
+Commit:     Panagiotis-Stephanos Makos <psmakos@hotmail.com>
+CommitDate: Tue Jun 12 01:59:55 2018 +0300
+
+    Fix Charts
+
+[33mcommit 892611b4dcbb960141e5006e3a238eb3bf1b4362[m
+Author:     Panagiotis-Stephanos Makos <psmakos@hotmail.com>
+AuthorDate: Sun Jun 3 21:30:06 2018 +0300
+Commit:     Panagiotis-Stephanos Makos <psmakos@hotmail.com>
+CommitDate: Sun Jun 3 21:30:06 2018 +0300
+
+    Add Bubble Chart.
+
+[33mcommit 80001a3bedf82605bc6674ae6099e0f44e1ce505[m
+Author:     Panagiotis-Stephanos Makos <psmakos@hotmail.com>
+AuthorDate: Sun Jun 3 16:15:11 2018 +0300
+Commit:     Panagiotis-Stephanos Makos <psmakos@hotmail.com>
+CommitDate: Sun Jun 3 16:15:11 2018 +0300
+
+    Completion K-means Map.
+
+[33mcommit f78f7e500b28caf991209dd1620d8594c0635824[m
+Author:     Panagiotis-Stephanos Makos <psmakos@hotmail.com>
+AuthorDate: Sat Jun 2 21:24:30 2018 +0300
+Commit:     Panagiotis-Stephanos Makos <psmakos@hotmail.com>
+CommitDate: Sat Jun 2 21:24:30 2018 +0300
+
+    User control, Insert Country data from wikipedia to database, google charts.
+
+[33mcommit 18fbb8ea5422f728d6ed88f284a4108f37c9030d[m
+Author:     Panagiotis-Stephanos Makos <psmakos@hotmail.com>
+AuthorDate: Sat Jun 2 21:22:14 2018 +0300
+Commit:     Panagiotis-Stephanos Makos <psmakos@hotmail.com>
+CommitDate: Sat Jun 2 21:22:14 2018 +0300
+
+    User control, Insert Country data from wikipedia to database, charts.
