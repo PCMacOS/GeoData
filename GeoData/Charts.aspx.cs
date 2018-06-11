@@ -49,7 +49,6 @@ namespace GeoData
                 countryCount = db.CountryDatas.Count();
                 CountryList = db.CountryDatas.ToList();
                 var tite = db.CountryDatas.Where(o => o.Title == "Greece").ToList();
-                int popa = 0;
             }
             
         }

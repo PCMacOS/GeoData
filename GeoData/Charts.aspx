@@ -49,7 +49,7 @@
                                { %>
                             <div class="form-check">
                                 <label class="form-check-label" >
-                                    <input class="form-check-input" type="checkbox" id="<%= CountryList[i].Title %>" value="<%= CountryList[i].Title %>">
+                                    <input class="form-check-input" type="checkbox" id="<%= CountryList[i].Title %>" value="<%= CountryList[i].Title %>" checked>
                                     <%= CountryList[i].Title %>
                                 <span class="form-check-sign">
                                     <span class="check"></span>

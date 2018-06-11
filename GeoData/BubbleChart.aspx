@@ -39,18 +39,45 @@
                     <div class="col-md-8 ml-auto mr-auto">
                         <% if (countryCount >= 10)
                            { %>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="title">
+                                    <h3>Countres</h3>
+                                </div>
+                                <% for (int i = 0; i < CountryList.Count; i++)
+                                   { %>
+                                    <div class="form-check">
+                                        <label class="form-check-label" >
+                                            <input class="form-check-input" type="checkbox" id="<%= CountryList[i].Title %>" value="<%= CountryList[i].Title %>" checked>
+                                            <%= CountryList[i].Title %>
+                                            <span class="form-check-sign">
+                                                <span class="check"></span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                <% } %>
+                            </div>
                             <form id="OptionForm" >
+                                <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="title">
+                                    <h3>Criterion 1</h3>
+                                </div>
                             <select id="Option1Select" runat="server">
                                 <option value="7">GDP</option>
                                 <option value="8">Gini</option>
                                 <option value="9">Hid</option>
                             </select>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="title">
+                                    <h3>Criterion 2</h3>
+                                </div>
                             <select id="Option2Select" runat="server">
                                 <option value="7">GDP</option>
                                 <option value="8">Gini</option>
                                 <option value="9">Hid</option>
                             </select>
-                            <asp:Button ID="SelectOption" runat="server" Text="Select the options." CssClass="btn btn-primary btn-raised" onclick="SelectOptions_Click" />
+                                </div>
+                                <div style="text-align: center;" ><asp:Button ID="SelectOption" runat="server" Text="Select the options." CssClass="btn btn-primary btn-raised" onclick="SelectOptions_Click" /></div>
                             </form>
                             <%if (optionSelected){ %>
                             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
